@@ -8,11 +8,11 @@
 #     print(ch)
     
 # print("roc")
-# a = range(6)
-# for i in a :
-#     print(i)
-# print("hogya")
-st = "saksham lodha"
-n = len(st)
-for i in range(n):
-    print(i,"=",st[i])
+a = range(6)
+for i in a :
+    print(i)
+print("hogya")
+# st = "saksham lodha"
+# n = len(st)
+# for i in range(n):
+#     print(i,"=",st[i])
