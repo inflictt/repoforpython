@@ -23,7 +23,7 @@ print(num)
 
 for i in range(tries) :
     guess=int(input("ENTER THE NUMBER YOU GUESSED  : "))
-    value = check_value(num,guess)
+    value = check_value(num , guess )
     left = tries-1-i
     print("number of tries left are : ",left)
 
@@ -33,4 +33,5 @@ for i in range(tries) :
     elif(left==0):
         print ("oh no zero tries left now and the number was : ", num )
 
-# assert num == guess
+assert check_value(2,3) == False 
+assert check_value(11,11) == True 
