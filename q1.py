@@ -8,23 +8,29 @@
 # 5. input attempts from user, where attempts should be less than equal to number of total values in the range
 # 6. Create a feedback loop via the logic function which returns high, low or correct
 
-def check_value():
+def check_value(num,guess):
     if(num==guess ):
-        print("right answer bro ")
         return True
 
     else:
-        print("oops wrong number now you have this much guess left : ",tries-i) 
+        print("oops wrong number try again") 
         return False
+    
 import random
 num = random.randint(1,11)
 tries=5
 print(num)
+
 for i in range(tries) :
     guess=int(input("ENTER THE NUMBER YOU GUESSED  : "))
-    value = check_value()
+    value = check_value(num,guess)
+    left = tries-1-i
+    print("number of tries left are : ",left)
+
     if (value==True) :
+        print("right answer bro ")
         break
-    # print("number of tries left are : ", tries)
+    elif(left==0):
+        print ("oh no zero tries left now and the number was : ", num )
 
 # assert num == guess
