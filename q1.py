@@ -22,8 +22,8 @@ tries=5
 print(num)
 for i in range(tries) :
     guess=int(input("ENTER THE NUMBER YOU GUESSED  : "))
-    check_value()
-    if (check_value==True) :
+    value = check_value()
+    if (value==True) :
         break
     # print("number of tries left are : ", tries)
 
