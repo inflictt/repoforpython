@@ -24,25 +24,7 @@ print(num)
 
 for i in range(tries) :
     guess=input("Enter your guess from 1 to 11  : ")
-    try :
-        guess = int(guess)
-    except ValueError:
-        print("the guessed value is incorrect inputed  ")
-    try : 
-        guess = int(guess(1,11))
-    except:
-        print("the guessed value is incorrect inputed  ")
     
-    # if guess.isalpha() :
-    #     incorrect_input(num , guess )
-    #     break
-    # elif int(guess)<=0:
-    #     incorrect_input(num , guess )
-    #     break
-    # elif int(guess)>11:
-    #     incorrect_input(num , guess )
-    #     break
-        
     value = check_value(num , guess )
     left = tries-1-i
     print("number of tries left are : ",left)
