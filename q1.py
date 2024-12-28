@@ -11,20 +11,20 @@
 def check_value():
     if(num==guess ):
         print("right answer bro ")
-        return 1
+        return True
 
     else:
         print("oops wrong number now you have this much guess left : ",tries-i) 
-        return 0
+        return False
 import random
 num = random.randint(1,11)
 tries=5
 print(num)
 for i in range(tries) :
     guess=int(input("ENTER THE NUMBER YOU GUESSED  : "))
-    print("upon checking the guess we came to know that it is : ",check_value())
-    if num == guess :
-        break 
+    check_value()
+    if (check_value==True) :
+        break
     # print("number of tries left are : ", tries)
 
 # assert num == guess
