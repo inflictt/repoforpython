@@ -7,8 +7,19 @@
 # 4. input range from user
 # 5. input attempts from user, where attempts should be less than equal to number of total values in the range
 # 6. Create a feedback loop via the logic function which returns high, low or correct
-def incorrect_input(num , guess ):
-    print("THE INPUT YOU DID IS INCORRECT OR OUT OF RANGE ")
+
+def guess_input(guess):
+    try :
+        guess = int(guess)
+        if guess>0:
+            return guess
+        elif guess<12:
+            return guess 
+        else: 
+            print ("entered input is out of range ")
+    except ValueError:
+        print("the guessed value is incorrect inputed  ")
+
     
 def check_value(num,guess):
     if(num==guess ):
@@ -24,25 +35,7 @@ print(num)
 
 for i in range(tries) :
     guess=input("Enter your guess from 1 to 11  : ")
-    try :
-        guess = int(guess)
-    except ValueError:
-        print("the guessed value is incorrect inputed  ")
-    try : 
-        guess = int(guess(1,11))
-    except:
-        print("the guessed value is incorrect inputed  ")
-    
-    # if guess.isalpha() :
-    #     incorrect_input(num , guess )
-    #     break
-    # elif int(guess)<=0:
-    #     incorrect_input(num , guess )
-    #     break
-    # elif int(guess)>11:
-    #     incorrect_input(num , guess )
-    #     break
-        
+    guess_input(guess)
     value = check_value(num , guess )
     left = tries-1-i
     print("number of tries left are : ",left)
@@ -52,6 +45,8 @@ for i in range(tries) :
         break
     elif(left==0):
         print ("oh no zero tries left now and the number was : ", num )
+    else : 
+        print("wrong answer bro try again ")
 
 # assert check_value(2,3) == False 
 # assert check_value(11,11) == True 
