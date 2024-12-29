@@ -62,6 +62,6 @@ def main():
             break
         elif(left==0):
             print ("oh no zero tries left now and the number was : ", num )
-    assert check_value(2,3) == False 
-# assert check_value(11,11) == True 
-main()
+
+if __name__ == "__main__":
+    main()
