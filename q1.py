@@ -43,9 +43,10 @@ def guess_input(lower_bound,upper_bound):
 def check_value(num,guess):
     if(num==guess ):
         return True
-
+    elif num<guess:
+        print("the guessed number is greater than correct number")
     else:
-        return False
+        print("the guessed number is lesser than correct number")
     
 import random
 limit = range_input()
