@@ -15,11 +15,7 @@ def check_if_num_intger(user_message):
             return num1
 
         except:
-            
-            print("num1 entered incorrectly ")
-    
-
-
+            print("number entered incorrectly ")
 
 def range_input():
     user_message = "enter value for Lower bound : "
@@ -28,20 +24,20 @@ def range_input():
     upper_bound= check_if_num_intger(user_message)
     while lower_bound>upper_bound:
         print(f"you have entered upper bound which = {upper_bound} less than lower bound = {lower_bound} ")
-        upper_bound=int(input("Enter the upper value :  "))
+        upper_bound=check_if_num_intger(user_message)
     return lower_bound,upper_bound
 
 
 def guess_input(lower_bound,upper_bound):
-    guess=input(f"Enter your guess from {lower_bound} to {upper_bound}  : ")
-    try :
-        guess = int(guess)
-        if guess>=lower_bound and guess<=upper_bound:
-            return guess 
-        else: 
-            print (f"entered input is {guess} which is out of {lower_bound} to {upper_bound} ")
-    except ValueError:
-        print(f"the input is {guess} which entered is wrong as expected values are supposed to be integers  ")
+    guess=check_if_num_intger(f"Enter your guess from {lower_bound} to {upper_bound}  : ")
+    # try :
+    #     guess = int(guess)
+    if guess>=lower_bound and guess<=upper_bound:
+        return guess 
+    else: 
+        print (f"entered input is {guess} which is out of {lower_bound} to {upper_bound} ")
+    # except ValueError:
+    #     print(f"the input is {guess} which entered is wrong as expected values are supposed to be integers  ")
 
     
 def check_value(num,guess):
