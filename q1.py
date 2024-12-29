@@ -8,13 +8,15 @@
 # 5. input attempts from user, where attempts should be less than equal to number of total values in the range
 # 6. Create a feedback loop via the logic function which returns high, low or correct
 def check_if_num_intger(user_message):
-    num1 = input(user_message)
-    try:
-        num1= int(num1)
-        # return lower_bound
-    except:
-        print("num1 entered incorrectly ")
-    return num1
+    while True:
+        num1 = input(user_message)
+        try:
+            num1= int(num1)
+            return num1
+
+        except:
+            
+            print("num1 entered incorrectly ")
     
 
 
