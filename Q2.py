@@ -3,16 +3,18 @@ USER=input("Enter Your Name : ")
 DRAW="Draw"
 COMPUTER="Computer" 
 def making_moves_input(round,round_winner_list):
-    for i in round :
+    for index, i in enumerate(round,start = 1) :
 
         comp_move=computer_move()
-        user_move= your_move()        
-        print(f"computer played : {comp_move} \t {USER} played :  {user_move}")
+        user_move= your_move()   
+        print(f"{index}) computer played : {comp_move} \t {index}) {USER} played :  {user_move}")
         final_score= round_winner(comp_move,user_move)
         round_winner_list.append(final_score)
+        print(f"Round {index} won by :  {round_winner_list[i]}")     
+
   
 def showcasing_round_winner(round,round_winner_list,user_score,comp_score):
-    for i in round :    
+    for index,i in enumerate(round,start=1) :    
         if round_winner_list[i]==USER:
             user_score=user_score+1
         elif round_winner_list[i]==COMPUTER:
