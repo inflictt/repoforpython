@@ -52,11 +52,10 @@ upper_bound=limit[1]
 num = random.randint(lower_bound,upper_bound)
 tries=upper_bound-lower_bound+1
 
-for i in range(tries) :
+for left in range(tries,0,-1) :
     guess= guess_input(lower_bound,upper_bound)
     value = check_value(num , guess )
-    left = tries-i-1
-    print("number of tries left are : ",left)
+    print("number of tries left are : ",left-1)
 
     if (value==True) :
         print("right answer bro ")

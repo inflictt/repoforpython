@@ -5,7 +5,7 @@
 # range(i,j) = i , i+1 , i+2 , i+3 ........ j-1
 # range (1,10,2)
 # rules =  only integer allowed and stepsize must be greater than 0 
-a= range(4,100,8)
+a= range(100,4,-8)
 print(a[0])
 print(a[1])
 print(a[2])
