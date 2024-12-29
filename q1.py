@@ -50,12 +50,12 @@ limit = range_input()
 lower_bound=limit[0]
 upper_bound=limit[1]
 num = random.randint(lower_bound,upper_bound)
-tries=upper_bound-lower_bound
+tries=upper_bound-lower_bound+1
 
 for i in range(tries) :
     guess= guess_input(lower_bound,upper_bound)
     value = check_value(num , guess )
-    left = tries-i
+    left = tries-i-1
     print("number of tries left are : ",left)
 
     if (value==True) :
