@@ -44,23 +44,24 @@ def check_value(num,guess):
     else:
         print("the guessed number is lesser than correct number")
     return False
-    
-import random
-limit = range_input()
-lower_bound=limit[0]
-upper_bound=limit[1]
-num = random.randint(lower_bound,upper_bound)
-tries=upper_bound-lower_bound+1
+def main():   
+    import random
+    limit = range_input()
+    lower_bound=limit[0]
+    upper_bound=limit[1]
+    num = random.randint(lower_bound,upper_bound)
+    tries=upper_bound-lower_bound+1
 
-for left in range(tries,0,-1) :
-    guess= guess_input(lower_bound,upper_bound)
-    value = check_value(num , guess )
-    print("number of tries left are : ",left-1)
+    for left in range(tries,0,-1) :
+        guess= guess_input(lower_bound,upper_bound)
+        value = check_value(num , guess )
+        print("number of tries left are : ",left-1)
 
-    if (value==True) :
-        print("right answer bro ")
-        break
-    elif(left==0):
-        print ("oh no zero tries left now and the number was : ", num )
-assert check_value(2,3) == False 
+        if (value==True) :
+            print("right answer bro ")
+            break
+        elif(left==0):
+            print ("oh no zero tries left now and the number was : ", num )
+    assert check_value(2,3) == False 
 # assert check_value(11,11) == True 
+main()
