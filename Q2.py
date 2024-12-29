@@ -1,8 +1,34 @@
 # Create a rock-paper-scissors game: Allow the user to play rock-paper-scissors against the computer. Use random number generation to determine the computer's choice.
-USER="user"
-DRAW="draw"
-COMPUTER="computer" 
+USER=input("Enter Your Name : ")
+DRAW="Draw"
+COMPUTER="Computer" 
+def making_moves_input(round,round_winner_list):
+    for i in round :
 
+        comp_move=computer_move()
+        user_move= your_move()        
+        print(f"computer played : {comp_move} \t {USER} played :  {user_move}")
+        final_score= round_winner(comp_move,user_move)
+        round_winner_list.append(final_score)
+  
+def showcasing_round_winner(round,round_winner_list,user_score,comp_score):
+    for i in round :    
+        if round_winner_list[i]==USER:
+            user_score=user_score+1
+        elif round_winner_list[i]==COMPUTER:
+            comp_score=comp_score+1
+    return user_score, comp_score
+
+
+def final_scoring_results(comp_score,user_score):
+    print(f"computer score is {comp_score} \t {USER} score is {user_score}")
+    if user_score>comp_score:
+        print(f"{USER} won the game ")
+    elif user_score<comp_score:
+        print("computer won the game ")
+    else:
+        print("game tied") 
+        
 def checking_move_if_integer(user_message):
         while True : 
             move= input(user_message)
@@ -40,7 +66,7 @@ def computer_move():
 
 def your_move():
     while True : 
-        move= checking_move_if_integer("Please user enter: ")
+        move= checking_move_if_integer(f"Please {USER} enter: ")
         if move >0 and move<4:
             return move 
         else:
@@ -55,29 +81,11 @@ round= range(rounds)
 comp_score= 0 
 user_score = 0
 round_winner_list = []
-for i in round :
+making_moves_input(round,round_winner_list)
+user_score , comp_score = showcasing_round_winner(round, round_winner_list, user_score, comp_score)
+final_scoring_results(comp_score,user_score)
 
-    comp_move=computer_move()
-    user_move= your_move()        
-    print("computer played : " , comp_move)
-    print("user played : " , user_move)
-    final_score= round_winner(comp_move,user_move)
-    round_winner_list.append(final_score)
-  
-for i in round :    
-    if round_winner_list[i]==USER:
-        user_score=user_score+1
-    elif round_winner_list[i]==COMPUTER:
-        comp_score=comp_score+1
-    
-print(f"computer score is {comp_score} \n user score is {user_score}")
-if user_score>comp_score:
-    print("user won the game ")
-elif user_score<comp_score:
-    print("computer won the game ")
-else:
-    print("game tied") 
-    
+
     
 assert round_winner(1,1)==DRAW
 assert round_winner(2,2)==DRAW
