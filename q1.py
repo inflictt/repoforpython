@@ -8,16 +8,16 @@
 # 5. input attempts from user, where attempts should be less than equal to number of total values in the range
 # 6. Create a feedback loop via the logic function which returns high, low or correct
 
-def guess_input():
-    guess=input("Enter your guess from 1 to 11  : ")
+def guess_input(lower_bound,upper_bound):
+    guess=input(f"Enter your guess from {lower_bound} to {upper_bound}  : ")
     try :
         guess = int(guess)
-        if guess>0 and guess<12:
+        if guess>=lower_bound and guess<=upper_bound:
             return guess 
         else: 
-            print ("entered input is out of range ")
+            print (f"entered input is {guess} which is out of {lower_bound} to {upper_bound} ")
     except ValueError:
-        print("the guessed value is incorrect inputed  ")
+        print(f"the input is {guess} which entered is wrong as expected values are supposed to be integers  ")
 
     
 def check_value(num,guess):
@@ -28,13 +28,15 @@ def check_value(num,guess):
         return False
     
 import random
-num = random.randint(1,11)
+lower_bound=1
+upper_bound=11
+num = random.randint(lower_bound,upper_bound)
 tries=5
 print(num)
 
 for i in range(tries) :
     # guess=input("Enter your guess from 1 to 11  : ")
-    guess= guess_input()
+    guess= guess_input(lower_bound,upper_bound)
     value = check_value(num , guess )
     left = tries-1-i
     print("number of tries left are : ",left)
