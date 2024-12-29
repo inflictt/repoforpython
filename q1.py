@@ -22,8 +22,8 @@ def range_input():
     lower_bound= check_if_num_intger(user_message)
     user_message = "enter value for Upper bound : "
     upper_bound= check_if_num_intger(user_message)
-    while lower_bound>upper_bound:
-        print(f"you have entered upper bound which = {upper_bound} less than lower bound = {lower_bound} ")
+    while lower_bound>=upper_bound:
+        print(f"you have entered upper bound which = {upper_bound} less than or equal lower bound = {lower_bound} ")
         upper_bound=check_if_num_intger(user_message)
     return lower_bound,upper_bound
 
@@ -53,7 +53,8 @@ print(limit)
 lower_bound=limit[0]
 upper_bound=limit[1]
 num = random.randint(lower_bound,upper_bound)
-tries=5
+tries=upper_bound-lower_bound
+print (tries)
 print(num)
 
 for i in range(tries) :
