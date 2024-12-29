@@ -11,7 +11,7 @@ def making_moves_input(round,round_winner_list):
 
         comp_move=computer_move()
         user_move= your_move()   
-        print(f"{index}) computer played : {comp_move} \t {index}) {Name.USER} played :  {user_move}")
+        print(f"{index}) computer played : {comp_move} \t {index}) {Name.USER.value} played :  {user_move}")
         final_score= round_winner(comp_move,user_move)
         round_winner_list.append(final_score)
         print(f"Round {index} won by :  {round_winner_list[i]}")     
@@ -27,9 +27,9 @@ def showcasing_round_winner(round,round_winner_list,user_score,comp_score):
 
 
 def final_scoring_results(comp_score,user_score):
-    print(f"computer score is {comp_score} \t {Name.USER} score is {user_score}")
+    print(f"computer score is {comp_score} \t {Name.USER.value} score is {user_score}")
     if user_score>comp_score:
-        print(f"{Name.USER} won the game ")
+        print(f"{Name.USER.value} won the game ")
     elif user_score<comp_score:
         print("computer won the game ")
     else:
@@ -72,7 +72,7 @@ def computer_move():
 
 def your_move():
     while True : 
-        move= checking_move_if_integer(f"Please {Name.USER} enter: ")
+        move= checking_move_if_integer(f"Please {Name.USER.value} enter: ")
         if move >0 and move<4:
             return move 
         else:
