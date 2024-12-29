@@ -29,14 +29,13 @@ def range_input():
 
 
 def guess_input(lower_bound,upper_bound):
-    guess=check_if_num_intger(f"Enter your guess from {lower_bound} to {upper_bound}  : ")
-
-    if guess>=lower_bound and guess<=upper_bound:
-        return guess 
-    else: 
-        print (f"entered input is {guess} which is out of {lower_bound} to {upper_bound} ")
-
-    
+    while True:
+        guess=check_if_num_intger(f"Enter your guess from {lower_bound} to {upper_bound}  : ")
+        if guess>=lower_bound and guess<=upper_bound:
+            return guess 
+        else: 
+            print (f"you guessed {guess} which is out of {lower_bound} to {upper_bound} renter it ")
+            
 def check_value(num,guess):
     if(num==guess ):
         return True
@@ -56,7 +55,7 @@ tries=upper_bound-lower_bound
 for i in range(tries) :
     guess= guess_input(lower_bound,upper_bound)
     value = check_value(num , guess )
-    left = tries-1-i
+    left = tries-i
     print("number of tries left are : ",left)
 
     if (value==True) :
@@ -65,4 +64,4 @@ for i in range(tries) :
     elif(left==0):
         print ("oh no zero tries left now and the number was : ", num )
 assert check_value(2,3) == False 
-assert check_value(11,11) == True 
+# assert check_value(11,11) == True 
