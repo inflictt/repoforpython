@@ -30,14 +30,11 @@ def range_input():
 
 def guess_input(lower_bound,upper_bound):
     guess=check_if_num_intger(f"Enter your guess from {lower_bound} to {upper_bound}  : ")
-    # try :
-    #     guess = int(guess)
+
     if guess>=lower_bound and guess<=upper_bound:
         return guess 
     else: 
         print (f"entered input is {guess} which is out of {lower_bound} to {upper_bound} ")
-    # except ValueError:
-    #     print(f"the input is {guess} which entered is wrong as expected values are supposed to be integers  ")
 
     
 def check_value(num,guess):
@@ -47,19 +44,16 @@ def check_value(num,guess):
         print("the guessed number is greater than correct number")
     else:
         print("the guessed number is lesser than correct number")
+    return False
     
 import random
 limit = range_input()
-print(limit)
 lower_bound=limit[0]
 upper_bound=limit[1]
 num = random.randint(lower_bound,upper_bound)
 tries=upper_bound-lower_bound
-print (tries)
-print(num)
 
 for i in range(tries) :
-    # guess=input("Enter your guess from 1 to 11  : ")
     guess= guess_input(lower_bound,upper_bound)
     value = check_value(num , guess )
     left = tries-1-i
@@ -70,5 +64,5 @@ for i in range(tries) :
         break
     elif(left==0):
         print ("oh no zero tries left now and the number was : ", num )
-# assert check_value(2,3) == False 
-# assert check_value(11,11) == True 
+assert check_value(2,3) == False 
+assert check_value(11,11) == True 
