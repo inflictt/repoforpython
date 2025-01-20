@@ -25,11 +25,17 @@ def checking_results_for_choice(choice,tasks_list,user_name):
             print(f"Creating A list For {user_name}")
             num_tasks=number_of_tasks()
             creating_a_list(num_tasks,tasks_list)
-            
-        elif choice == 3:
+        
+        elif choice == 2 :#updation or edition depening on usereneed
+            print("editing/updating the list please hold up a bit ...")
+            to_edit=int(input("Enter the index of value you want to replace with : "))
+            tasks_list[to_edit]=input("Enter the new value you want to update to : ")
+            print("List after getting updatd is : ", tasks_list)
+        
+        elif choice == 3: #delteing by value from the user need 
             print("deletion in progress please hold up a bit ...")
             print("list before deleteing a value", tasks_list)
-            to_delete=input("enter the value you want to delete from the list ")
+            to_delete=input("enter the value you want to delete from the list : ")
             tasks_list.remove(to_delete)
             print("list after deleting a value ",tasks_list)
         
