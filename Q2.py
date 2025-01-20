@@ -1,10 +1,13 @@
 # Create a rock-paper-scissors game: Allow the user to play rock-paper-scissors against the computer. Use random number generation to determine the computer's choice.
 from enum import Enum
-
 class Name(Enum):
     USER = input("enter your name:")          
     COMPUTER = "Computer" 
     DRAW = "Draw"  
+class Values(Enum):
+    Rock=1
+    Paper=2
+    Scissors=3
     
 def making_moves_input(round,round_winner_list):
     for index, i in enumerate(round,start = 1) :
@@ -14,14 +17,14 @@ def making_moves_input(round,round_winner_list):
         print(f"{index}) computer played : {comp_move} \t {index}) {Name.USER.value} played :  {user_move}")
         final_score= round_winner(comp_move,user_move)
         round_winner_list.append(final_score)
-        print(f"Round {index} won by :  {round_winner_list[i]}")     
+        print(f"Round {round} won by :  {round_winner_list[i]}")     
 
   
 def showcasing_round_winner(round,round_winner_list,user_score,comp_score):
     for index,i in enumerate(round,start=1) :    
-        if round_winner_list[i]==Name.USER:
+        if round_winner_list[i]==Name.USER.name:
             user_score=user_score+1
-        elif round_winner_list[i]==Name.COMPUTER:
+        elif round_winner_list[i]==Name.COMPUTER.name:
             comp_score=comp_score+1
     return user_score, comp_score
 
