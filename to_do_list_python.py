@@ -4,7 +4,7 @@ def storing_tasks(task_list,task_info):
     task_list.append(task_info)
     
 def feed_tasks(task_list): 
-        task_info=input(f"{i}) Enter the details of the task {i}: ")
+        task_info=input(f"{i}). Enter the details of the task {i}: ")
         storing_tasks(task_list,task_info)
         
 def checking_tasks_as_integer_input():
