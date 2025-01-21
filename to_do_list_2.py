@@ -1,5 +1,6 @@
 from datetime import date
 from sympy import oo
+import sqlite3
 
 def creating_a_list(num_tasks,tasks_list):
     for i in range(1, num_tasks + 1):
@@ -41,20 +42,25 @@ def checking_results_for_choice(choice,tasks_list,user_name,completed_tasks_list
         
         elif choice==4 : #to view the list 
             print("Viewving list here = ", tasks_list)
-        
+            print("Completed task list is ", completed_tasks_list)     
+            print("reccuring task list : ", recurring_tasks_list)
+
         elif choice == 5: #for completed task list
             comp_task=int(input("enter the index of the task you want to update as completed : "))
             x=tasks_list.pop(comp_task)
             completed_tasks_list.append(x)          
-            print("Completed task list is ", completed_tasks_list)     
             
         elif choice ==6 : #for reccuring task list
                 num_tasks=number_of_tasks()
                 for i in range(num_tasks):
                     rec_task=input(f"Enter recurring tasks here {i} : ")
                     recurring_tasks_list.append(rec_task)
-                print("reccuring task list : ", recurring_tasks_list)
+                # tasks_list.append(recurring_tasks_list)
 
+        elif choice == 7: #for completed task list of reccruing list
+            comp_rec_task=int(input("enter the index of the task you want to update as completed : "))
+            r=recurring_tasks_list.pop(comp_rec_task)
+            completed_tasks_list.append(r)       
                     
                     
 def checking_user_input_for_integer():
@@ -64,14 +70,15 @@ def checking_user_input_for_integer():
             "Enter 2 to replace the list\n"
             "Enter 3 to delete tasks\n"
             "Enter 4 to view the list\n"
-            "Enter 5 to update task in completed task list\n  "
-            "Enter 6 for recurring tasks list\n "
-            "Enter 7 to exit\n"
-            "Please enter your choice here: "
+            "Enter 5 to update task in completed task list\n"
+            "Enter 6 for recurring tasks list\n"
+            "Enter 7 to  make completion of task from recuring list\n"
+            "Enter 8 to exit\n"
+            "Please enter your choice here:"
         )
         try:
             choice = int(choice)
-            if 1 <= choice <= 7:
+            if 1 <= choice <= 8:
                 return choice
             else:
                 print("Please enter a number between 1 and 5.")
@@ -87,7 +94,7 @@ def task_manager():
 
     while True:
         choice = checking_user_input_for_integer()
-        if choice == 7:
+        if choice == 8:
             print("Exiting the application...")
             break
         else:
